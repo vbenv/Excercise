@@ -1,20 +1,19 @@
-# 두 정수 A,B가 주어졌을 때, A,B 비교하는 프로그램 작성
+# 시험 점수를 입력받아 90 ~ 100점은 A, 80 ~ 89점은 B
+# , 70 ~ 79점은 C, 60 ~ 69점은 D, 나머지 점수는 F를 출력하는 프로그램
+try:
+    Score = float(input("시험 점수를 입력해주세요. : "))
+    if Score > 100 or Score < 0:
+        print("시험 점수를 다시 입력해주세요")
+    elif Score >= 90:
+        print("A")
+    elif Score >= 80:
+        print("B")
+    elif Score >= 70:
+        print("C")
+    elif Score >= 60:
+        print("D")
+    else:
+        print("F")
+except ValueError:
+    print(f'{ValueError} : 숫자를 입력해주세요.')
 
-A,B = input("A와 B를 입력하세요: ").split()
-A= int(A)
-B = int(B)
-if A <= -10000:
-    print('A가 너무 낮습니다.')
-elif B >= 10000:
-    print('B가 너무 큽니다.')
-elif A > B:
-    print('>')
-elif A <B:
-    print('<')
-else:
-    print('==')
-
-C,D = map(int, input("두 개 입력해봐라 ").split())
-
-print(C,D)
-print(type(C), type(D))
