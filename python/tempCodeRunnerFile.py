@@ -15,3 +15,6 @@ def mCn(M, N):
         return int(m/((mn)*n))
 N, M = map(int,input().split(" "))
 print(mCn(M,N))
+
+#
+# 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
