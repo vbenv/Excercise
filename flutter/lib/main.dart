@@ -17,30 +17,36 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue // 색상 견본을 지정하여 기본 색상으로 사용하겠다.
       ),
     // 앱이 정상적으로 실행되었으 때 가장 먼저 보여지는 곳
-    home: MyHomePage(),
+    home: MyCard(),
     );
   }
 }
 // MyHomePage 위젯 만들기
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MyCard extends StatelessWidget {
+  const MyCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // 앱 화면에 위젯을 보여주기 위한 도화지 역할 Scaffold
+    //
     return Scaffold(
       appBar: AppBar(
         title: Text('First App'),
+        // set title's position.
+        centerTitle: true,
+        // set background color.
+        backgroundColor: Colors.redAccent,
+        // appbar elevation.
+        elevation: 0.0,
       ),
-      // 화면을 만드는 시작점
-      body: Center( // 배열을 지정하고 자식들이 있음.
-        child: Column(
-          children: <Widget>[
-            Text('Hello'),
-            Text('Hello'),
-            Text('Hello')
-          ],
-        ),
+      body: Center(
+        child: Column( // Center + Column : set horizontal axis.
+            mainAxisAlignment: MainAxisAlignment.center, // vertical axis
+            children: <Widget>[
+              Text('Hello'),
+              Text('Hello'),
+              Text('Hello'),
+            ],
+          ),
       ),
     );
   }
