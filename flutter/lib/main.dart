@@ -1,53 +1,145 @@
-import 'package:flutter/material.dart'; // 일관된 디자인을 위해 구글에서 제공하는 라이브러리.무조건 이것부터 import
+import 'package:flutter/material.dart';
 
-// main함수는 앱의 시작점.
-// runapp : 시작하는 최상위 함수. 위젯을 argument로 무조건 가져야 함.
 void main() => runApp(MyApp());
 
-// stl 누르면
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 앱을 총칭하는 이름 <-> 홈 위젯에서의 title은 화면에서 보여지는 text.
-      title: 'First app',
-      theme: ThemeData(
-          primarySwatch: Colors.blue // 색상 견본을 지정하여 기본 색상으로 사용하겠다.
-      ),
-    // 앱이 정상적으로 실행되었으 때 가장 먼저 보여지는 곳
-    home: MyCard(),
+      debugShowCheckedModeBanner: false, // delete debug red line on the right top in app.
+      title: 'BBANTO',
+      home: Grade(),
     );
   }
 }
-// MyHomePage 위젯 만들기
-class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+
+class Grade extends StatelessWidget {
+  const Grade({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //
     return Scaffold(
+      backgroundColor: Colors.amber[800], // set body bg color
       appBar: AppBar(
-        title: Text('First App'),
-        // set title's position.
+        title: Text('BBANTO'),
+        backgroundColor: Colors.amber[700], // set bg color to amber color 700
         centerTitle: true,
-        // set background color.
-        backgroundColor: Colors.redAccent,
-        // appbar elevation.
         elevation: 0.0,
       ),
-      body: Center(
-        child: Column( // Center + Column : set horizontal axis.
-            mainAxisAlignment: MainAxisAlignment.center, // vertical axis
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
+          child: Column(
+            // Align all elements of a column widget horizontally
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Hello'),
-              Text('Hello'),
-              Text('Hello'),
+              // insert image on the top.
+              Center(
+                child: CircleAvatar( // set image frame
+                  backgroundImage: AssetImage('assets/fire.png'),
+                  radius: 60.0,
+                ),
+              ),
+              Divider( // make 'divider' between pic and text.
+                height: 60.0, // Spacing between the top and bottom widgets
+                color: Colors.grey[850],
+                thickness: 1.5,
+                endIndent: 30.0, // set the margin at the end
+              ),
+              Text('name',
+              style: TextStyle(
+                color: Colors.white,
+                letterSpacing: 2.0, // set spacing between letters.
+            ),
+            ),
+              SizedBox(
+                height: 10.0, // height or width -> blank space
+              ),
+              Text('BBANTO',
+              style: TextStyle(
+                color: Colors.white,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold
+              ),
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+              Text('BBANTO POWER LEVEL',
+                style: TextStyle(
+                  color: Colors.white,
+                  letterSpacing: 2.0, // set spacing between letters.
+                ),
+              ),
+              SizedBox(
+                height: 10.0, // height or width -> blank space
+              ),
+              Text('14',
+                style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold
+                ),
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.check_circle_outline),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text('using lightsaber',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      letterSpacing: 1.0
+                    )),
+                  ],
+                ),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text('face hero tatoo',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          letterSpacing: 1.0
+                      )),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text('fire flames',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          letterSpacing: 1.0
+                      )),
+                ],
+              ),
+              SizedBox(
+                height: 50.0,
+              ),
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dogs.webp'),
+                  radius: 40.0,
+                  backgroundColor: Colors.amber[800] // like remove bg.
+                ),
+              )
             ],
           ),
-      ),
+    ),
     );
   }
 }
+

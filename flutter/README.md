@@ -1,7 +1,6 @@
-# flutter
+# contact
 
-New flutter project.
-It is my flutter excise histories.
+A new Flutter project.
 
 ## Getting Started
 
