@@ -1,15 +1,21 @@
-# 프로그래머스, 콜라츠 수열 만들기
+# 프로그래머스, 배열 만들기 4
 
 
-def solution(x):
-    answer = []
-    while x > 1:
-        answer.append(int(x))
-        if (x % 2) == 0 :
-           x = x / 2
-        elif (x%2) == 1:
-            x = 3 * x + 1
-    answer.append(1)
-    return answer
+def solution(arr):
+    i = 0
+    stk = []
+    while i < len(arr):
+        # stk is empty, append arr[i] to stk and add 1 to i
+        if (len(stk) == 0):
+            stk.append(arr[i])
+            i += 1
+        # last element in stk is smaller than arr[i], append arr[i] to stk
+        elif stk[-1] < arr[i]:
+            stk.append(arr[i])
+            i += 1
+        else:
+            stk.pop()
+            
+    return stk
 
-print(solution(10))
+print(solution([1,4,2,5,3]))
