@@ -1,8 +1,15 @@
-# 프로그래머스, 카운트 업
+# 프로그래머스, 콜라츠 수열 만들기
 
 
-def solution(start_num, end_num):
+def solution(x):
     answer = []
-    [answer.append(i) for i in range(start_num, end_num + 1)]
+    while x > 1:
+        answer.append(int(x))
+        if (x % 2) == 0 :
+           x = x / 2
+        elif (x%2) == 1:
+            x = 3 * x + 1
+    answer.append(1)
     return answer
-print(solution(1,10))
+
+print(solution(10))
